@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 
+
 function App() {
   function upload() {
     var input = document.getElementById("upload");
@@ -10,25 +11,18 @@ function App() {
       document.getElementById("video").src = freader.result;
     };
   }
-
-  function download() {}
-
-  return (
+  return ( 
+    <center >
     <div>
       <video width="720" height="480" controls="controls" id="video">
         <source id="src" type="video/mp4" />
       </video>
-
-      <div>
+      <div >
         <input type="file" accept="video/*" id="upload" onChange={upload} />
-
-        <button id="src" onClick={download}>
-          Download
-        </button>
       </div>
-      <button>Start</button>
     </div>
-  );
+    </center>
+    );
 }
 
 export default App;
