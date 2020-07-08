@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App() 
+{
+
+  function upload(){
+    var input=document.getElementById("upload");
+    var freader=new FileReader();
+    freader.readAsDataURL(input.files[1]);
+    freader.onload=function(){
+document.getElementById("video").src=freader.result;
+}
+  }
+
+function start(){
+
+  document.getElementById("video").play();
+}
+
+  
+return(
+  <div   >
+    <div >
+<video width="720" height="480" controls="controls" id="video">
+<source id="src"/>
+  </video>
+  </div>
+<input type="file" accept="video*/" id="upload" onChange={upload()}/>
+<button id="start" onClick={start()}>Start</button>
+
+  </div>
+  
+  )
+
 }
 
 export default App;
